@@ -6,13 +6,13 @@ build:
 
 build_csmith:
 	if [ ! -d ./csmith ]; then \
-		git clone git@github.com:csmith-project/csmith.git && \
-		cd csmith && ./configure && make ; \
+		git clone https://github.com/csmith-project/csmith.git && \
+		cd csmith && cmake . && make ; \
 	fi
 
 build_binaryen:
 	if [ ! -d ./binaryen ]; then \
-		git clone git@github.com:WebAssembly/binaryen.git && \
+		git clone https://github.com/WebAssembly/binaryen.git && \
 		cd binaryen && cmake . && make ; \
 	fi
 
@@ -30,7 +30,7 @@ wasm_fuzz:
 
 build_lucet:
 	if [ ! -d ./lucet ]; then \
-		git clone git@github.com:bytecodealliance/lucet.git && \
+		git clone https://github.com/bytecodealliance/lucet.git && \
 		cd lucet && git submodule update --init --recursive && \
 		cd lucetc && cargo build ; \
 	fi
