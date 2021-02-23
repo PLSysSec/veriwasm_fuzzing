@@ -31,7 +31,7 @@ wasm_fuzz:
 build_lucet:
 	if [ ! -d ./lucet ]; then \
 		git clone https://github.com/bytecodealliance/lucet.git && \
-		cd lucet && git submodule update --init --recursive && \
+		cd lucet && git checkout 86a3630c9b98eb345395b94bad021dc0d8489d6b && git submodule update --init --recursive && \
 		cd lucetc && cargo build --release; \
 	fi
 
