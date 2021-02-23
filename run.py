@@ -1,5 +1,8 @@
 import subprocess
 
+class VerificationError(Exception):
+    pass
+
 def run(filename):   
     return_code = subprocess.call(['../target/release/veriwasm', '-q',\
                                    '-i', filename],\
