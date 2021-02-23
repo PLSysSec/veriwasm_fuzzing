@@ -23,10 +23,10 @@ fetch_wasiclang:
 	fi
 
 csmith_fuzz: #build_csmith fetch_wasiclang build_lucet
-	ulimit 512000000 && nice -n 19 -- python csmith_fuzz.py -j 96
+	ulimit 512000000 && nice -n 19 -- python csmith_fuzz.py -j 4
 
 wasm_fuzz:
-	ulimit 512000000 && nice -n 19 -- python wasm_fuzz.py -j 96
+	ulimit 512000000 && nice -n 19 -- python wasm_fuzz.py -j 4
 
 build_lucet:
 	if [ ! -d ./lucet ]; then \
