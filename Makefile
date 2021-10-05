@@ -2,7 +2,7 @@ build:
 	make build_csmith
 	make build_binaryen
 	make fetch_wasiclang
-	make build_lucet
+	#make build_lucet # Instead, use the base lucet
 
 build_csmith:
 	if [ ! -d ./csmith ]; then \
@@ -23,10 +23,10 @@ fetch_wasiclang:
 	fi
 
 csmith_fuzz: #build_csmith fetch_wasiclang build_lucet
-	ulimit 512000000 && nice -n 19 -- python csmith_fuzz.py -j 4
+	ulimit 512000000 && nice -n 19 -- python3 csmith_fuzz.py -j 4
 
 wasm_fuzz:
-	ulimit 512000000 && nice -n 19 -- python wasm_fuzz.py -j 4
+	ulimit 512000000 && nice -n 19 -- python3 wasm_fuzz.py -j 4
 
 build_lucet:
 	if [ ! -d ./lucet ]; then \
