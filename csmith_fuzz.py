@@ -57,8 +57,8 @@ class CSmithTrial(object):
 
 
   def create_native_code(self):
-    lucet = "../lucet_sandbox_compiler/target/release/lucetc"
-    bindings = "--bindings ../lucet_sandbox_compiler/lucet-wasi/bindings.json"
+    lucet = "lucet/target/release/lucetc"
+    bindings = "--bindings lucet/lucet-wasi/bindings.json"
     flags = '--guard-size "4GiB" --min-reserved-size "4GiB" --max-reserved-size "4GiB"'
     cmd = f"{lucet} {bindings} {flags} {self.wasm_file} -o {self.bin_file}"
     os.system(cmd)
